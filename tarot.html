@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarô de Marselha</title>
+    <style>
+        .borda {
+            border: 2px solid #000;
+        }
+
+        .preto {
+            background-color: #000;
+        }
+
+        .verde {
+            background-color: #060;
+        }
+
+        .cinza {
+            background-color: #ccc;
+        }
+
+        .texto-centralizado {
+            text-align: center;
+        }
+
+        .elemento-centralizado {
+            margin: 0 auto;
+        }
+
+        div {
+            padding: 5px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        #tudo {
+            width: 90%;
+        }
+
+        #mesa {
+            width: auto;
+            height: 500px;
+        }
+    </style>
+</head>
+<body class="preto">
+    <div class="cinza elemento-centralizado" id="tudo">
+        <h1 class="texto-centralizado">Tarô de Marselha</h1>
+        <div class="borda" id="menu">
+            <form>
+                <fieldset>
+                    <legend>Configuração do baralho</legend>
+                    <input type="checkbox" name="arcanos" value="maior" checked>Arcanos Maiores
+                    <input type="checkbox" name="arcanos" value="menor">Arcanos Menores
+                </fieldset>
+                <fieldset>
+                    <legend>Método</legend>
+                    <select id="metodos">
+                        <option value="uma" selected>Uma carta</option>
+                        <option value="três">Três cartas</option>
+                    </select>
+                </fieldset>
+                <div class="texto-centralizado">
+                    <input type="submit" value="Jogar">
+                </div>
+            </form>
+        </div>
+        <div class="verde borda" id="mesa">
+            <table class="elemento-centralizado"></table>
+        </div>
+    </div>
+    <script>
+        const form = document.querySelector("form");
+        const tabela = document.querySelector("table");
+
+        const arcanosMaiores = ["a01.jpg", "a02.jpg", "a03.jpg", "a04.jpg", "a05.jpg", "a06.jpg", "a07.jpg", "a08.jpg", "a09.jpg", "a10.jpg", "a11.jpg", "a12.jpg", "a13.jpg", "a14.jpg", "a15.jpg", "a16.jpg", "a17.jpg", "a18.jpg", "a19.jpg", "a20.jpg", "a21.jpg", "a22.jpg"];
+        const arcanosMenores = [
+            "b01.jpg", "b02.jpg", "b03.jpg", "b04.jpg", "b05.jpg", "b06.jpg", "b07.jpg", "b08.jpg", "b09.jpg", "b10.jpg", "b11.jpg", "b12.jpg", "b13.jpg", "b14.jpg",
+            "c01.jpg", "c02.jpg", "c03.jpg", "c04.jpg", "c05.jpg", "c06.jpg", "c07.jpg", "c08.jpg", "c09.jpg", "c10.jpg", "c11.jpg", "c12.jpg", "c13.jpg", "c14.jpg",
+            "d01.jpg", "d02.jpg", "d03.jpg", "d04.jpg", "d05.jpg", "d06.jpg", "d07.jpg", "d08.jpg", "d09.jpg", "d10.jpg", "d11.jpg", "d12.jpg", "d13.jpg", "d14.jpg",
+            "e01.jpg", "e02.jpg", "e03.jpg", "e04.jpg", "e05.jpg", "e06.jpg", "e07.jpg", "e08.jpg", "e09.jpg", "e10.jpg", "e11.jpg", "e12.jpg", "e13.jpg", "e14.jpg"
+        ];
+
+        form.addEventListener("submit", jogar);
+
+        function jogar(e) {
+            e.preventDefault();
+
+            const arcanos = form.arcanos; // caixas de seleção dos arcanos
+            const baralho = embaralharCartas(arcanos);
+            const metodos = form.metodos.options; // os elementos opções de métodos
+            fazerTiragem(baralho, metodos);
+        }
+
+        function embaralharCartas(arcanos) {
+            let cartas;
+
+            if (arcanos[0].checked && !arcanos[1].checked) {
+                cartas = shuffle(arcanosMaiores);
+            } else if (!arcanos[0].checked && arcanos[1].checked) {
+                cartas = shuffle(arcanosMenores);
+            } else if (arcanos[0].checked && arcanos[1].checked) {
+                cartas = shuffle(arcanosMaiores.concat(arcanosMenores));
+            } else {
+                alert("Selecione os arcanos a serem utilizados!");
+            }
+
+            return cartas;
+        }
+
+        function fazerTiragem(baralho, metodos) {
+            console.log(baralho)
+            tabela.innerHTML = "";
+            const chanceDeInversao = 0.4;
+
+            if (metodos[0].selected) {
+                const linha = tabela.insertRow(0);
+                const celula = linha.insertCell(0);
+                const imagem = document.createElement("img");
+                imagem.src = "img/" + baralho[0];
+                if (Math.random() < chanceDeInversao) {
+                    imagem.style.transform = "scaleY(-1) scaleX(-1)"; // inverte a carta
+                }
+                celula.appendChild(imagem);
+            } else if (metodos[1].selected) {
+                const linha = tabela.insertRow(0);
+
+                for (let i = 0; i < 3; i++) {
+                    const celula = linha.insertCell(i);
+                    const imagem = document.createElement("img");
+                    imagem.src = "img/" + baralho[i];
+                    if (Math.random() < chanceDeInversao) {
+                        imagem.style.transform = "scaleY(-1) scaleX(-1)"; // inverte a carta
+                    }
+                    celula.appendChild(imagem);
+                }
+            }
+        }
+
+        function shuffle(a) {
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * i);
+
+                const temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+
+            return a;
+        }
+    </script>
+</body>
+</html>

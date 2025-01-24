@@ -534,19 +534,28 @@ expressão eloquente e alegre, mas fala sem pensar`,
 
         selArcanoMaior.addEventListener("change", selecionarArcano);
         selTaromancia.addEventListener("change", mostrarPlano);
-
+        
         let arcano;
         let plano;
 
         function selecionarArcano() {
             const i = selArcanoMaior.options.selectedIndex;
-            arcano = arcanosMaiores[i - 1];
-            divTarologia.innerHTML = `<p><b>Caminho:</b> ${arcano.caminho}</p><p><b>Atributo Principal: ${arcano.atributoPrincipal.toUpperCase()}</b></p><p><b>Atributos gerais:</b> ${arcano.atributosGerais}.</p>`
+            
+            if (i >= 1) {
+                arcano = arcanosMaiores[i - 1];
+                divTarologia.innerHTML = `<p><b>Caminho:</b> ${arcano.caminho}</p><p><b>Atributo Principal: ${arcano.atributoPrincipal.toUpperCase()}</b></p><p><b>Atributos gerais:</b> ${arcano.atributosGerais}.</p>`
+            } else {
+                arcano = undefined;
+                divTarologia.innerHTML = "";
+            }
+
             selTaromancia.options.selectedIndex = 0;
             divTaromancia.innerHTML = "";
         }
 
         function mostrarPlano() {
+            if (arcano == undefined) return;
+            
             const i = selTaromancia.options.selectedIndex;
             let texto;
 
@@ -558,7 +567,9 @@ expressão eloquente e alegre, mas fala sem pensar`,
                 case 5: texto = `<p>${arcano.quatroPlanos}.</p>`; break;
                 case 6: texto = `<p>${arcano.conselho}.</p>`; break;
                 case 7: texto = `<p>${arcano.negativa}.</p>`; break;
+                default: texto = "";
             }
+
             divTaromancia.innerHTML = texto;
         }
     </script>

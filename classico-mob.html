@@ -23,8 +23,31 @@
             background: #fff;
         }
 
-        pre {
-            white-space: pre-wrap;
+        .carta-grande {
+            width: 200px;
+            height: 400px;
+            border: 2px solid #000;
+            border-radius: 15px;
+            text-align: center;
+            font-size: small;
+        }
+
+        .carta-media {
+            width: 100px;
+            height: 200px;
+            border: 2px solid #000;
+            border-radius: 10px;
+            text-align: center;
+            font-size: x-small;
+        }
+
+        .carta-pequena {
+            width: 50px;
+            height: 100px;
+            border: 2px solid #000;
+            border-radius: 5px;
+            text-align: center;
+            font-size: xx-small;
         }
     </style>
 </head>
@@ -32,6 +55,235 @@
 <body>
     <div id="tudo">
         <h1>Tarô Clássico</h1>
+        <h3>Método</h3>
+        <select id="metodos">            
+            <option></option>
+            <option>Conselho Pessoal (1 carta)</option>
+            <option>Caminho da Vida (3 cartar)</option>
+            <option>Peladan (5 cartar)</option>
+            <option>Mandala (13 cartas)</option>
+        </select>
+        <dialog id="conselho">
+            <table>
+                <tr>
+                    <td class="carta-grande">
+                        <h3>Conselho</h3>
+                        DEVO?... POSSO?... 
+                        <p>atributo principal + conselho</p>
+                    </td>
+                </tr>
+            </table>
+            <button>Fechar</button>
+        </dialog>
+        <dialog id="caminho">
+            <table>
+                <tr>
+                    <td class="carta-media">
+                        <h3>1 - Passado</h3>
+                        Como estava recentemente
+                    </td>
+                    <td class="carta-media">
+                        <h3>2 - Presente</h3>
+                        O que ocorre na atualidade
+                    </td>
+                    <td class="carta-media">
+                        <h3>3 - Futuro</h3>
+                        O possível resultado (3 meses)
+                    </td>
+                </tr>
+            </table>
+            <p>
+                Sempre plano material.
+            </p>
+            <button>Fechar</button>
+        </dialog>
+        <dialog id="peladan">
+            <table>
+                <tr>
+                    <td></td>
+                    <td class="carta-pequena">
+                        <h3>3 - Caminho</h3>
+                        <p>
+                            Qual direção a questão vai tomar?
+                        </p>
+                        <p>
+                            Plano da pergunta
+                        </p>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="carta-pequena">
+                        <h3>1 - Positivo</h3>
+                        <p>
+                            O que é favorável no presente?
+                        </p>
+                        <p>
+                            Plano da pergunta
+                        </p>
+                    </td>
+                    <td class="carta-pequena">
+                        <h3>5 - Síntese</h3>
+                        <p>
+                            Como o consulente se encontra perante a questão?
+                        </p>
+                        <p>
+                            Plano da pergunta
+                        </p>
+                    </td>
+                    <td class="carta-pequena">
+                        <h3>2 - Negativo</h3>
+                        <p>
+                            O que é desfavorável no presente?
+                        </p>
+                        <p>
+                            negativo/inverso
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="carta-pequena">
+                        <h3>4 - Resultado</h3>
+                        <p>
+                            Como será o produto?
+                        </p>
+                        <p>
+                            Plano da pergunta
+                        </p>
+                        <p>
+                            Confirmado apenas se as casas anteriores indicarem abertura.
+                        </p>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+            <button>Fechar</button>
+        </dialog>
+        <dialog id="mandala">            
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="carta-pequena">
+                        <h3>10 - Realizações</h3>
+                        <p>Qual o poder do consulente para realizar os objetivos?</p>
+                        <p>Material</p>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="carta-pequena">
+                        <h3>11 - Social</h3>
+                        <p>Como se encontram os amigos do consulente em relação a ele?</p>
+                        <p>Mental</p>
+                    </td>
+                    <td></td>
+                    <td class="carta-pequena">
+                        <h3>9 - Projetos</h3>
+                        <p>Quais os planos do consulente para o futuro, o que ele deseja a longo prazo?</p>
+                        <p>Mental</p>
+                        <p>1 &rArr; 9</p>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="carta-pequena">
+                        <h3>12 - Desafio</h3>
+                        <p>Qual o carma pessoal que o consulente deve resolver nos próximos três memses?</p>
+                        <p>Conselho</p>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="carta-pequena">
+                        <h3>8 - Alma</h3>
+                        <p>Como está o interior do consulente, o lado ocunto?</p>
+                        <p>Sentimental</p>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="carta-pequena">
+                        <h3>1 - Pensamento</h3>
+                        <p>Como o consulente está pensando e planejando?</p>
+                        <p>Mental</p>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td class="carta-pequena">
+                        <h3>0 - Síntese</h3>
+                        <p>O caminho do destino para o consulente.</p>
+                        <p>Atributo Principal</p>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td class="carta-pequena">
+                        <h3>7 - Parceiro(a)</h3>
+                        <p>Como está o(a) parceiro(a) em relação ao consulente?</p>
+                        <p>Mental</p>
+                        <p>5 &rArr; 7</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="carta-pequena">
+                        <h3>2 - Dinheiro</h3>
+                        <p>Como está a situação financeira do consulente?</p>
+                        <p>Material</p>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="carta-pequena">
+                        <h3>6 - Trabalho</h3>
+                        <p>Como está a profissão ou trabalho do consulente?</p>
+                        <p>Material</p>
+                        <p>2 &rArr; 6</p>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="carta-pequena">
+                        <h3>3 - Comunicação</h3>
+                        <p>Como o consulente está se expressando verbalmente?</p>
+                        <p>Verbal</p>
+                        <p>1 &rArr; 3</p>
+                    </td>
+                    <td></td>
+                    <td class="carta-pequena">
+                        <h3>5 - Amor</h3>
+                        <p>Como estão os sentimentos do consulente?</p>
+                        <p>Sentimental</p>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="carta-pequena">
+                        <h3>4 - Lar</h3>
+                        <p>Como está o lar, a moradia do consulente?</p>
+                        <p>Material + Sentimental</p>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <button>Fechar</button>
+        </dialog>
         <h3>Arcano Maior</h3>
         <select id="arcanosMaiores">
             <option selected></option>
@@ -527,16 +779,30 @@ expressão eloquente e alegre, mas fala sem pensar`,
             }
         ];
 
+        const selMetodos = document.querySelector("#metodos");
+        const dialogsMetodos = document.querySelectorAll("dialog");
         const selArcanoMaior = document.querySelector("#arcanosMaiores");
         const divTarologia = document.querySelector("#tarologia");
         const selTaromancia = document.querySelector("#planos");
         const divTaromancia = document.querySelector("#taromancia");
 
+        selMetodos.addEventListener("change", selecionarMetodo);
         selArcanoMaior.addEventListener("change", selecionarArcano);
         selTaromancia.addEventListener("change", mostrarPlano);
         
         let arcano;
         let plano;
+
+        function selecionarMetodo() {
+            const i = selMetodos.options.selectedIndex;
+
+            const dialog = dialogsMetodos[i - 1]
+            dialog.showModal();
+            dialog.querySelector("button").onclick = function() {
+                dialog.close();
+                selMetodos.options.selectedIndex = 0;
+            };            
+        }
 
         function selecionarArcano() {
             const i = selArcanoMaior.options.selectedIndex;
@@ -555,7 +821,7 @@ expressão eloquente e alegre, mas fala sem pensar`,
 
         function mostrarPlano() {
             if (arcano == undefined) return;
-            
+
             const i = selTaromancia.options.selectedIndex;
             let texto;
 

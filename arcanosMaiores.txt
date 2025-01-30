@@ -55,21 +55,21 @@ Negativa: Falta de coragem
 
 8 - Justiça (ajustar):
 Material: Equilíbrio ordenado
-Mental: Pensamento racional
+Mental: Ponderação metódica
 Sentimental: Afastamento afetivo
 Espiritual: Proteção divina
 Negativa: Intolerância prejudicial
 
 9 - Eremita (Pesquisar):
 Material: Progresso lento
-Mental: Pensamento prudente
+Mental: Pesquisa prudente
 Sentimental: Afeição leal
 Espiritual: Intuição profunda
 Negativa: Retrocesso precipitado
 
 10 - Roda da Fortuna (alterar):
 Material: Mudança instável
-Mental: Pensamento confuso
+Mental: Ideias confusas
 Sentimental: Ansiedade emocional
 Espiritual: Influência negativa
 Negativa: Dificuldade solitária
@@ -85,14 +85,14 @@ DOR:
 
 12 - Pendurado (resignar):
 Material: Dificuldade financeira
-Mental: Pensamento obsessivo
+Mental: Obsessão utópica
 Sentimental: Sofrimento amoroso
 Espiritual: Abnegação filantrópica
 Negativa: Liberdade total
 
 13 - Morte (modificar):
 Material: Mudança inesperada
-Mental: Pensamento lúcido
+Mental: Reorganização crítica
 Sentimental: Tristeza melancólica
 Espiritual: Vazio espiritual
 Negativa: Imobilidade momentânea
@@ -122,7 +122,7 @@ ESPERANÇA:
 
 17 - Estrela (harmonizar):
 Material: Avanço pessoal
-Mental: Pensamento inspirado
+Mental: Ideias claras
 Sentimental: Afeto verdadeiro
 Espiritual: Conexão intuitiva
 Negativa: Desapontamento pessoal
